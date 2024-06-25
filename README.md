@@ -21,6 +21,7 @@ cd ~/.config/wsl && \
 chmod +x init.sh init_jvm.sh && \
 ./init.sh && \
 ./init_jvm.sh && \
+./init_js.sh && \
 clear && \
 zsh
 ```
