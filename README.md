@@ -19,11 +19,7 @@ clone the repo into wsl
 git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wsl && \
 cd ~/.config/wsl && \
 chmod +x init.sh init_jvm.sh init_js.sh && \
-./init.sh && \
-clear && \
-zsh && \
-./init_jvm.sh && \
-./init_js.sh
+./init.sh
 ```
 
 
