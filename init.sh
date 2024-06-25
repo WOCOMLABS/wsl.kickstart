@@ -34,6 +34,8 @@ else
     NEOVIM_STATUS="Failed"
 fi
 
+# Install additional libraries for Lua build
+sudo apt install libreadline-dev -y
 
 
 # ========================================================================================= [ FONTS ]
