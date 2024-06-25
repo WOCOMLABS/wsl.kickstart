@@ -167,6 +167,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+# Ensure NVM is sourced in Zsh sessions
+if ! grep -Fxq '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' ~/.zshrc; then
+    echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+fi
+
 # Install Node.js
 nvm install 22
 
@@ -200,3 +206,5 @@ printf "%-25s %s\n" "Rust" "$RUST_STATUS"
 printf "%-25s %s\n" "NPM" "$NPM_STATUS"
 printf "%-25s %s\n" "Node js" "$NODE_STATUS"
 echo "----------------------------------"
+
+exec zsh -c "./init_jvm.sh && ./init_js.sh"
