@@ -4,7 +4,13 @@ if you work with windows sybsystem for linux and simple shell script that instal
 clone the repo into wsl 
 
 ```
-git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wsl && cd ~/.config/wsl && chmod +x init.sh && ./init.sh
+git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wsl && \
+cd ~/.config/wsl && \
+chmod +x init.sh init_jvm.sh && \
+./init.sh && \
+./init_jvm.sh && \
+clear && \
+zsh
 ```
 
 
