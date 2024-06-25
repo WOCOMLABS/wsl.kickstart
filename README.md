@@ -20,10 +20,10 @@ git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wsl && \
 cd ~/.config/wsl && \
 chmod +x init.sh init_jvm.sh init_js.sh && \
 ./init.sh && \
-./init_jvm.sh && \
-./init_js.sh && \
 clear && \
-zsh
+zsh && \
+./init_jvm.sh && \
+./init_js.sh
 ```
 
 
