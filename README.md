@@ -1,7 +1,12 @@
 # wsl.kickstart
 if you work with windows sybsystem for linux and simple shell script that installs neovim + kickstarter ,  sdkman , java , gradle , kotlin  , zsh  + starship, rust
 
+Install Power Shell ( as Admin ) 
 
+```
+winget install --id Microsoft.Powershell --source winget
+
+``` 
 Install wsl 
 
 ```
