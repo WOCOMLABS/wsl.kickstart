@@ -172,18 +172,3 @@ printf "%-25s %s\n" "Neovim" "$NEOVIM_STATUS"
 printf "%-25s %s\n" "Neovim Kickstarter" "$KICKSTART_STATUS"
 printf "%-25s %s\n" "Rust" "$RUST_STATUS"
 echo "----------------------------------"
-
-
-# Create a secondary script to run SDKMAN installs
-cat << 'EOF' > ~/install_sdkman_tools.sh
-#!/bin/zsh
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk install java 22.0.1-zulu
-sdk install gradle
-sdk install kotlin
-EOF
-
-chmod +x ~/install_sdkman_tools.sh
-
-# Restart the shell to apply changes and run the secondary script
-exec zsh -c '~/install_sdkman_tools.sh'
