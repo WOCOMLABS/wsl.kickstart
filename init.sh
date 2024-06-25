@@ -156,6 +156,29 @@ else
     RUST_STATUS="Failed"
 fi
 
+
+# ========================================================================================= [ NODEJS ]
+# Install NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Install Node.js
+nvm install 22
+
+# Verify Node.js and NPM installation
+if command -v node &> /dev/null; then
+    NODE_STATUS="Installed"
+else
+    NODE_STATUS="Failed"
+fi
+
+if command -v npm &> /dev/null; then
+    NPM_STATUS="Installed"
+else
+    NPM_STATUS="Failed"
+fi
+
 # ============================================================================== [ Display Results ]
 echo
 echo "Installation Summary:"
@@ -168,7 +191,7 @@ printf "%-25s %s\n" "Zsh" "$ZSH_STATUS"
 printf "%-25s %s\n" "Starship Prompt" "$STARSHIP_STATUS"
 printf "%-25s %s\n" "SDKMAN" "$SDKMAN_STATUS"
 printf "%-25s %s\n" "Neovim" "$NEOVIM_STATUS"
-#printf "%-25s %s\n" "NvChad" "$NVCHAD_STATUS"
 printf "%-25s %s\n" "Neovim Kickstarter" "$KICKSTART_STATUS"
 printf "%-25s %s\n" "Rust" "$RUST_STATUS"
+printf "%-25s %s\n" "NPM" "$NPM_STATUS"
 echo "----------------------------------"
