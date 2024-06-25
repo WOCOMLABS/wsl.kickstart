@@ -7,10 +7,10 @@ sudo apt upgrade -y
 
 
 # ================================================================================= [ COMMON STUFF ]
-sudo apt install curl zip make gcc ripgrep unzip xclip neovim -y
+sudo apt install curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip -y
 
 # Ensure required commands are in PATH
-commands=(curl zip make gcc ripgrep unzip xclip neovim)
+commands=(curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip)
 missing=false
 
 for cmd in "${commands[@]}"; do
