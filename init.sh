@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Update and upgrade packages
-sudo apt -qq update
-sudo apt -qq upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 
 
 # ================================================================================= [ COMMON STUFF ]
-sudo apt -qq install curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip -y  
+sudo apt install curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip -y
 
 sudo ln -s /usr/bin/python3 /usr/bin/python
 
@@ -48,11 +48,11 @@ mkdir  -p $FONT_DIR
 JETBRAINS_MONO_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
 OPENDYSLEXIC_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/OpenDyslexic.zip"
 
-curl -fLos "$FONT_DIR/JetBrainsMono.zip" $JETBRAINS_MONO_URL
-curl -fLos "$FONT_DIR/OpenDyslexic.zip" $OPENDYSLEXIC_URL
+curl -fLo "$FONT_DIR/JetBrainsMono.zip" $JETBRAINS_MONO_URL
+curl -fLo "$FONT_DIR/OpenDyslexic.zip" $OPENDYSLEXIC_URL
 
-unzip -oq "$FONT_DIR/JetBrainsMono.zip" -d $FONT_DIR/jetbrainsmono
-unzip -oq "$FONT_DIR/OpenDyslexic.zip" -d $FONT_DIR/opendyslexic
+unzip -o "$FONT_DIR/JetBrainsMono.zip" -d $FONT_DIR/jetbrainsmono
+unzip -o "$FONT_DIR/OpenDyslexic.zip" -d $FONT_DIR/opendyslexic
 
 fc-cache -fv
 
@@ -79,7 +79,7 @@ fi
 
 # =========================================================================================== [ ZSH ]
 # Install Zsh
-sudo apt -qq install zsh -y
+sudo apt install zsh -y
 
 # Set Zsh as the default shell
 chsh -s $(which zsh)
@@ -103,7 +103,7 @@ fi
 # Install Kickstart.nvim
 if [ ! -d "$HOME/.config/nvim" ]; then
 #    git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
-    git -q clone https://github.com/WOCOMLABS/kickstart.nvim ~/.config/nvim
+    git clone https://github.com/WOCOMLABS/kickstart.nvim ~/.config/nvim
 fi
 
 # Verify Kickstart.nvim installation
@@ -117,7 +117,7 @@ fi
 
 # ======================================================================================= [ STARSHIP ]
 # Install Starship prompt
-yes | curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh
 
 # Add Starship configuration to .zshrc if not already present
 if ! grep -Fxq 'eval "$(starship init zsh)"' ~/.zshrc
@@ -151,7 +151,6 @@ fi
 # =========================================================================================== [ RUST ]
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
 source $HOME/.cargo/env
 
 # Verify Rust installation
@@ -164,7 +163,7 @@ fi
 
 # ========================================================================================= [ NODEJS ]
 # Install NVM (Node Version Manager)
-curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -175,7 +174,7 @@ if ! grep -Fxq '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' ~/.zshrc; then
 fi
 
 # Install Node.js
-nvm install 22 > /dev/null 2>&1
+nvm install 22
 
 # Verify Node.js and NPM installation
 if command -v node &> /dev/null; then
