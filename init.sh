@@ -1,5 +1,13 @@
 #!/bin/bash
 
+(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
+	&& wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+
+
 # Update and upgrade packages
 sudo apt update
 sudo apt upgrade -y
@@ -7,12 +15,12 @@ sudo apt upgrade -y
 
 
 # ================================================================================= [ COMMON STUFF ]
-sudo apt install curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip -y
+sudo apt install curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip gh -y
 
 sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # Ensure required commands are in PATH
-commands=(curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip)
+commands=(curl zip make gcc ripgrep unzip xclip neovim python3 python3-pip gh)
 missing=false
 
 for cmd in "${commands[@]}"; do
