@@ -1,5 +1,5 @@
 # wsl.kickstart
-if you work with windows sybsystem for linux and simple shell script that installs neovim + kickstarter ,  sdkman , java , gradle , kotlin  , zsh  + starship, rust
+if you work with windows sybsystem for linux this is a simple shell script that installs neovim + kickstarter ,  sdkman , java , gradle , kotlin  , zsh  + starship, rust , gh
 
 Install Power Shell ( as Admin ) 
 
@@ -29,14 +29,18 @@ git config --global credential.helper store
 
 ```
 
-clone the repo into wsl 
+clone the repo into wsl  
+
+----
+
+> [!TIP]
+> You are on a new ubuntu install just use this command
 
 ```bash
-git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wsl && \
-cd ~/.config/wsl && \
+git clone https://github.com/WOCOMLABS/wsl.kickstart ~/.config/wocom && \
+cd ~/.config/wocom && \
 chmod u+x init.sh init_jvm.sh init_js.sh && \
 ./init.sh
 ```
-
 
 
